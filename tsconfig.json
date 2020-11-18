@@ -16,6 +16,7 @@
       "/utils/*": ["src/render/utils/*"],
       "/views/*": ["src/render/views/*"]
     },
+    "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true
   },
   "include": [
