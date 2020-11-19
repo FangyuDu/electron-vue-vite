@@ -17,6 +17,7 @@ function createWin() {
   win = new BrowserWindow({
     width: 1024,
     height: 768,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
     },
