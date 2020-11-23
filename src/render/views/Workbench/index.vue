@@ -1,3 +1,5 @@
 <template lang="pug">
-#page-entry 工作台页面
+#page-entry.full.flex
+  aside.left
+  .flex-1
 </template>

@@ -2,7 +2,7 @@
 header.app-menu
   nav.menu-nav
     ul.flex
-      li.nav-item(:class="{'active': item === activeMenu}" @click="handleMenuClick(item)" v-for="item in menuList" :index="item") {{item}}
+      li.nav-item(:class="{'active': item === activeMenu}" @click="activeMenu = item" v-for="item in menuList" :index="item") {{item}}
 main.app-main.flex-1
   keep-alive: component(:is="activeMenu")
 </template>
@@ -22,32 +22,10 @@ export default {
     const menuList = ['框架', '项目', '环境']
     return {
       menuList,
-      activeMenu: menuList[1],
-      nodeV: 'xx.xx.x',
-      npmV: ''
+      activeMenu: menuList[1]
     }
   },
-  mounted () {
-    this.init()
-  },
-  methods: {
-    init() {
-      this.handleSend()
-    },
-    async handleSend() {
-      let res = await this.$ipc.invoke('api:common/getEnv')
-      if(res.success) {
-        this.nodeV = res.data.nodeV
-        this.npmV = res.data.npmV
-      }
-    },
-    handleMenuClick(item) {
-      this.activeMenu = item
-    },
-    handleOpen() {
-
-    }
-  }
+  methods: { }
 }
 </script>
 
@@ -77,6 +55,8 @@ $menuitemBg: #555;
   }
 }
 .app-main {
+  background-image: url(../../assets/nasa.jpg);
+  background-size: 1920px 1080px;
   background-color: scale-color($menuitemBg, $lightness: -50%);
   color: #fff;
 
